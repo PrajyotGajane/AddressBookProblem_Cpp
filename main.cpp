@@ -1,21 +1,29 @@
 #include <iostream>
 #include "Person.h"
+#include "UserInputOutput.h"
+
 using namespace std;
 
 Person* addContact()
 {
-    Person *personObject = new Person("Prajyot", "Gajane", "Hno 3", "Margao", "Goa", 403601, 99223443345);
-    return personObject;
+    UserInputOutput input;
+    Person* person  = input.setFullName();
+    input.setContactDetails(person);
+    return person;
 }
 
 void display(Person* person){
     person->display();
 }
 
+void displayWelcomeMessage(){
+    cout << "Welcomem to Address Book Problem" << endl;
+}
+
 int main()
 {
-    cout << "Welcomem to Address Book Problem" << endl;
-    Person *personObject = addContact();
-    display(personObject);
+    displayWelcomeMessage();
+    Person* person  = addContact();
+    display(person);
     return 0;
 }
