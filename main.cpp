@@ -1,13 +1,21 @@
 #include <iostream>
+#include "Person.h"
 using namespace std;
 
-void displayWelcomeMessage()
+Person* addContact()
 {
-    cout << "\n\nWelcome to Address Book Problem" << endl;
+    Person *personObject = new Person("Prajyot", "Gajane", "Hno 3", "Margao", "Goa", 403601, 99223443345);
+    return personObject;
+}
+
+void display(Person* person){
+    person->display();
 }
 
 int main()
 {
-    displayWelcomeMessage();
+    cout << "Welcomem to Address Book Problem" << endl;
+    Person *personObject = addContact();
+    display(personObject);
     return 0;
 }
