@@ -12,4 +12,5 @@ class UserInputOutput{
     string inputState();
     int inputZipcode();
     long long inputPhoneNumber();
+    int selectFieldToSort();
 };

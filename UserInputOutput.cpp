@@ -67,9 +67,18 @@ long long UserInputOutput::inputPhoneNumber()
     return phone_number;
 }
 
-int UserInputOutput::selectFieldToEdit(){
+int UserInputOutput::selectFieldToEdit()
+{
     int choice;
-    cout << "\nEdit:\n 1: Address  2: City  3: State  4:Zipcode  5:Phone Number  6: Exit :" << endl;
+    cout << "\nEdit:\n 1: Address  2: City  3: State  4:Zipcode  5:Phone Number  6: Exit : ";
+    cin >> choice;
+    return choice;
+}
+
+int UserInputOutput::selectFieldToSort()
+{
+    int choice;
+    cout << "\nSort:\n1: By Name  2: By City  3: By State  4: By Zipcode : ";
     cin >> choice;
     return choice;
 }

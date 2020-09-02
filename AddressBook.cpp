@@ -105,8 +105,24 @@ void AddressBook::display()
     }
 }
 
-void AddressBook::sortByName()
+void AddressBook::sort(int sortChoice)
 {
-    contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getFullName() < secondPerson->getFullName(); });
+    switch (sortChoice)
+    {
+    case 1:
+        contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getFullName() < secondPerson->getFullName(); });
+        break;
+    case 2:
+        contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getCity() < secondPerson->getCity(); });
+        break;
+    case 3:
+        contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getState() < secondPerson->getState(); });
+        break;
+    case 4:
+        contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getZipcode() < secondPerson->getZipcode(); });
+        break;
+    default:
+        break;
+    }
     display();
 }

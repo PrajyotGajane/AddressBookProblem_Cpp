@@ -49,7 +49,9 @@ void performTask()
             delete personDelete;
             break;
         case 5:
-            addressBook.sortByName();
+            int sortChoice;
+            sortChoice = userInputOutput.selectFieldToSort();
+            addressBook.sort(sortChoice);
             break;
         case 6:
             endKey = false;
