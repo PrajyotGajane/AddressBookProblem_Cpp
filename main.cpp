@@ -1,30 +1,57 @@
 #include <iostream>
 #include "Person.h"
 #include "UserInputOutput.h"
+#include "AddressBook.h"
 
 using namespace std;
 
-Person *addContact()
+void performTask()
 {
-    UserInputOutput input;
-    Person *person = input.setFullName();
-    input.setContactDetails(person);
-    return person;
-}
-
-void display(Person *person)
-{
-    if(person != nullptr)
-        person->display();
-    else
-        cout << "After delete" << endl;
-}
-
-void editContactDetails(Person *person)
-{
-    UserInputOutput editInput;
-    cout << "Edit contact information" << endl;
-    editInput.setContactDetails(person);
+    bool endKey = true;
+    while (endKey)
+    {
+        int choice;
+        AddressBook addressBook;
+        UserInputOutput userInputOutput;
+        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 6:End" << endl;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            Person *personPtr;
+            personPtr = userInputOutput.setFullName();
+            userInputOutput.setContactDetails(personPtr);
+            addressBook.addContact(personPtr);
+            break;
+        case 2:
+            Person *personEdit;
+            personEdit = userInputOutput.setFullName();
+            addressBook.editContactDetails(personEdit);
+            break;
+        case 3:
+            addressBook.display();
+            break;
+        case 4:
+            Person *personDelete;
+            personDelete = userInputOutput.setFullName();
+            if (addressBook.deleteContact(personDelete) == 0)
+            {
+                cout << "\nNo Data Found\n";
+            }
+            else
+            {
+                cout << "\nDeleted Successfully\n";
+            }
+            delete personDelete;
+            break;
+        case 6:
+            endKey = false;
+            break;
+        default:
+            cout << "Invalid Input" << endl;
+            break;
+        }
+    }
 }
 
 void displayWelcomeMessage()
@@ -32,19 +59,9 @@ void displayWelcomeMessage()
     cout << "Welcomem to Address Book Problem" << endl;
 }
 
-void deleteContact(Person *person)
-{
-    delete person;
-    cout << "Contact Deleted" << endl;
-}
-
 int main()
 {
     displayWelcomeMessage();
-    Person *person = addContact();
-    display(person);
-    editContactDetails(person);
-    display(person);
-    deleteContact(person);
+    performTask();
     return 0;
 }

@@ -4,38 +4,72 @@
 
 using namespace std;
 
-Person* UserInputOutput::setFullName(){
+Person *UserInputOutput::setFullName()
+{
     string first_name;
     string last_name;
-    cout <<"\nEnter the First Name : ";
+    cout << "\nEnter the First Name : ";
     cin >> first_name;
-    cout <<"\nEnter the Last Name : ";
+    cout << "\nEnter the Last Name : ";
     cin >> last_name;
-    Person* person = new Person(first_name, last_name);
+    Person *person = new Person(first_name, last_name);
     return person;
 }
 
-Person* UserInputOutput::setContactDetails(Person * person){
+Person *UserInputOutput::setContactDetails(Person *person)
+{
+    person->setAddress(inputAddress());
+    person->setCity(inputCity());
+    person->setState(inputState());
+    person->setZipcode(inputZipcode());
+    person->setPhoneNumber(inputPhoneNumber());
+    return person;
+}
+
+string UserInputOutput::inputAddress()
+{
     string address;
-    string city;
-    string state;
-    int zip_code;
-    long long phone_number;
     cout << "\nEnter the Address : ";
     cin.ignore();
     getline(cin, address);
-    person->setAddress(address);
+    return address;
+}
+
+string UserInputOutput::inputCity()
+{
+    string city;
     cout << "\nEnter the City : ";
     cin >> city;
-    person->setCity(city);
+    return city;
+}
+
+string UserInputOutput::inputState()
+{
+    string state;
     cout << "\nEnter the State : ";
     cin >> state;
-    person->setState(state);
-    cout << "\nEnter the 6 Digit Zip code : ";
+    return state;
+}
+
+int UserInputOutput::inputZipcode()
+{
+    int zip_code;
+    cout << "\nEnter the Zipcode : ";
     cin >> zip_code;
-    person->setZipcode(zip_code);
-    cout <<"\nEnter the 10 Digit Mobile Number : ";
+    return zip_code;
+}
+
+long long UserInputOutput::inputPhoneNumber()
+{
+    long long phone_number;
+    cout << "\nEnter the phone number : ";
     cin >> phone_number;
-    person->setPhoneNumber(phone_number);
-    return person;
+    return phone_number;
+}
+
+int UserInputOutput::selectFieldToEdit(){
+    int choice;
+    cout << "\nEdit:\n 1: Address  2: City  3: State  4:Zipcode  5:Phone Number  6: Exit :" << endl;
+    cin >> choice;
+    return choice;
 }
