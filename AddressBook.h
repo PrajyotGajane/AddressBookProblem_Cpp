@@ -11,4 +11,5 @@ class AddressBook{
     void sort(int);
     void viewByCity(string);
     void viewByState(string);
+    void searchCityState(string);
 };

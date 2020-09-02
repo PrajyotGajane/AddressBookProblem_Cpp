@@ -90,3 +90,11 @@ int UserInputOutput::selectFieldToView()
     cin >> choice;
     return choice;
 }
+
+string UserInputOutput::inputCityOrState()
+{
+    string city_or_state;
+    cout << "\nEnter the city or state name : ";
+    cin >> city_or_state;
+    return city_or_state;
+}

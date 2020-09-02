@@ -133,8 +133,8 @@ void AddressBook::viewByCity(string city)
         cout << "\nNo data" << endl;
     for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
     {
-        if((*contact_pointers)->getCity() == city)
-            cout << "Name : " << (*contact_pointers)->getFullName() << " City : " << (*contact_pointers)->getCity() << endl;
+        if ((*contact_pointers)->getCity() == city)
+            cout << "Name : " << (*contact_pointers)->getFullName() << "\tCity : " << (*contact_pointers)->getCity() << endl;
     }
 }
 
@@ -144,7 +144,18 @@ void AddressBook::viewByState(string state)
         cout << "\nNo data" << endl;
     for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
     {
-        if((*contact_pointers)->getState() == state)
-            cout << "Name : " << (*contact_pointers)->getFullName() << " State : " << (*contact_pointers)->getState() << endl;
+        if ((*contact_pointers)->getState() == state)
+            cout << "Name : " << (*contact_pointers)->getFullName() << "\tState : " << (*contact_pointers)->getState() << endl;
+    }
+}
+
+void AddressBook::searchCityState(string city_or_state)
+{
+    if (contact_list.empty())
+        cout << "\nNo data" << endl;
+    for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
+    {
+        if ((*contact_pointers)->getState() == city_or_state || (*contact_pointers)->getCity() == city_or_state)
+            cout << "Name : " << (*contact_pointers)->getFullName() << endl;
     }
 }

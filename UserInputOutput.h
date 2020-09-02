@@ -14,4 +14,5 @@ class UserInputOutput{
     long long inputPhoneNumber();
     int selectFieldToSort();
     int selectFieldToView();
+    string inputCityOrState();
 };

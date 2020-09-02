@@ -13,7 +13,7 @@ void performTask()
         int choice;
         AddressBook addressBook;
         UserInputOutput userInputOutput;
-        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 4: Delete 5: Sort 7:View 9:End" << endl;
+        cout << "\n1: Add Contact 2: Edit Contact 3: Display 4: Delete 5: Sort 7: View 8: Search 9: End" << endl;
         cin >> choice;
         switch (choice)
         {
@@ -55,20 +55,29 @@ void performTask()
             addressBook.sort(sortChoice);
             break;
         case 7:
-            int viewChoice;
-            viewChoice = userInputOutput.selectFieldToView();
-            switch (viewChoice)
             {
-            case 1:
-                addressBook.viewByCity(userInputOutput.inputCity());
-                break;
-            case 2:
-                addressBook.viewByState(userInputOutput.inputState());
-                break;
-            default:
-                break;
+                int viewChoice;
+                viewChoice = userInputOutput.selectFieldToView();
+                switch (viewChoice)
+                {
+                case 1:
+                    addressBook.viewByCity(userInputOutput.inputCity());
+                    break;
+                case 2:
+                    addressBook.viewByState(userInputOutput.inputState());
+                    break;
+                default:
+                    break;
+                }
             }
-            break;    
+            break;
+        case 8:
+            {
+            string search_city_state;
+            search_city_state = userInputOutput.inputCityOrState();
+            addressBook.searchCityState(search_city_state);
+            }
+            break;
         case 9:
             endKey = false;
             break;
