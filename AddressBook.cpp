@@ -30,6 +30,14 @@ Person *findContactPointer(Person *person)
     return nullptr;
 }
 
+bool AddressBook::duplicateContact(Person *person)
+{
+    bool duplicateExist = false;
+    if(findContactPointer(person) != nullptr)
+        duplicateExist = true;
+    return duplicateExist;
+}
+
 void AddressBook::editContactDetails(Person *person)
 {
     Person *editPerson = findContactPointer(person);
@@ -69,7 +77,6 @@ void AddressBook::editContactDetails(Person *person)
     {
         cout << "Contact doesn't exist" << endl;
     }
-    
 }
 
 int AddressBook::deleteContact(Person *person)
@@ -90,7 +97,7 @@ int AddressBook::deleteContact(Person *person)
 
 void AddressBook::display()
 {
-    if(contact_list.empty())
+    if (contact_list.empty())
         cout << "\nNo data" << endl;
     for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
     {

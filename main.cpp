@@ -20,6 +20,10 @@ void performTask()
         case 1:
             Person *personPtr;
             personPtr = userInputOutput.setFullName();
+            if (addressBook.duplicateContact(personPtr)){
+                cout << "Contact already exists!!!!!" << endl;
+                break;
+            }
             userInputOutput.setContactDetails(personPtr);
             addressBook.addContact(personPtr);
             break;

@@ -6,5 +6,6 @@ class AddressBook{
     void addContact(Person*);
     int deleteContact(Person*);
     void display();
+    bool duplicateContact(Person*);
     void editContactDetails(Person*);
 };
