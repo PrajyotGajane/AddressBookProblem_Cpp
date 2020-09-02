@@ -13,7 +13,7 @@ void performTask()
         int choice;
         AddressBook addressBook;
         UserInputOutput userInputOutput;
-        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 6:End" << endl;
+        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 4: Delete 5: Sort 6:End" << endl;
         cin >> choice;
         switch (choice)
         {
@@ -47,6 +47,9 @@ void performTask()
                 cout << "\nDeleted Successfully\n";
             }
             delete personDelete;
+            break;
+        case 5:
+            addressBook.sortByName();
             break;
         case 6:
             endKey = false;

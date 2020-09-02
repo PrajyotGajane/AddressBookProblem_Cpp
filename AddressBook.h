@@ -8,4 +8,5 @@ class AddressBook{
     void display();
     bool duplicateContact(Person*);
     void editContactDetails(Person*);
+    void sortByName();
 };

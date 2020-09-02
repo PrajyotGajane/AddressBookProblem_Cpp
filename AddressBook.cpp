@@ -33,7 +33,7 @@ Person *findContactPointer(Person *person)
 bool AddressBook::duplicateContact(Person *person)
 {
     bool duplicateExist = false;
-    if(findContactPointer(person) != nullptr)
+    if (findContactPointer(person) != nullptr)
         duplicateExist = true;
     return duplicateExist;
 }
@@ -103,4 +103,10 @@ void AddressBook::display()
     {
         (*contact_pointers)->display();
     }
+}
+
+void AddressBook::sortByName()
+{
+    contact_list.sort([](Person *firstPerson, Person *secondPerson) { return firstPerson->getFullName() < secondPerson->getFullName(); });
+    display();
 }
