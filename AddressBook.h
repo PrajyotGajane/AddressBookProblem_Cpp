@@ -9,4 +9,6 @@ class AddressBook{
     bool duplicateContact(Person*);
     void editContactDetails(Person*);
     void sort(int);
+    void viewByCity(string);
+    void viewByState(string);
 };

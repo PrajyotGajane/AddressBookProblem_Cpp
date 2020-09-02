@@ -82,3 +82,11 @@ int UserInputOutput::selectFieldToSort()
     cin >> choice;
     return choice;
 }
+
+int UserInputOutput::selectFieldToView()
+{
+    int choice;
+    cout << "\nView:\n1:By City  2:By State : ";
+    cin >> choice;
+    return choice;
+}

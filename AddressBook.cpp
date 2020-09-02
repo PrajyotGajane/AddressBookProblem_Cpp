@@ -126,3 +126,25 @@ void AddressBook::sort(int sortChoice)
     }
     display();
 }
+
+void AddressBook::viewByCity(string city)
+{
+    if (contact_list.empty())
+        cout << "\nNo data" << endl;
+    for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
+    {
+        if((*contact_pointers)->getCity() == city)
+            cout << "Name : " << (*contact_pointers)->getFullName() << " City : " << (*contact_pointers)->getCity() << endl;
+    }
+}
+
+void AddressBook::viewByState(string state)
+{
+    if (contact_list.empty())
+        cout << "\nNo data" << endl;
+    for (auto contact_pointers = contact_list.begin(); contact_pointers != contact_list.end(); ++contact_pointers)
+    {
+        if((*contact_pointers)->getState() == state)
+            cout << "Name : " << (*contact_pointers)->getFullName() << " State : " << (*contact_pointers)->getState() << endl;
+    }
+}

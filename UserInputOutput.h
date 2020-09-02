@@ -13,4 +13,5 @@ class UserInputOutput{
     int inputZipcode();
     long long inputPhoneNumber();
     int selectFieldToSort();
+    int selectFieldToView();
 };

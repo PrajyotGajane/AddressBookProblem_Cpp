@@ -13,14 +13,15 @@ void performTask()
         int choice;
         AddressBook addressBook;
         UserInputOutput userInputOutput;
-        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 4: Delete 5: Sort 6:End" << endl;
+        cout << "\n 1: Add Contact 2: Edit Contact 3: Display 4: Delete 5: Sort 7:View 9:End" << endl;
         cin >> choice;
         switch (choice)
         {
         case 1:
             Person *personPtr;
             personPtr = userInputOutput.setFullName();
-            if (addressBook.duplicateContact(personPtr)){
+            if (addressBook.duplicateContact(personPtr))
+            {
                 cout << "Contact already exists!!!!!" << endl;
                 break;
             }
@@ -53,7 +54,22 @@ void performTask()
             sortChoice = userInputOutput.selectFieldToSort();
             addressBook.sort(sortChoice);
             break;
-        case 6:
+        case 7:
+            int viewChoice;
+            viewChoice = userInputOutput.selectFieldToView();
+            switch (viewChoice)
+            {
+            case 1:
+                addressBook.viewByCity(userInputOutput.inputCity());
+                break;
+            case 2:
+                addressBook.viewByState(userInputOutput.inputState());
+                break;
+            default:
+                break;
+            }
+            break;    
+        case 9:
             endKey = false;
             break;
         default:
